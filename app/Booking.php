@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Concert extends Model
+class Booking extends Model
 {
     
+
     public function ticket() {
-        return $this->hasOne('App\Ticket');
+        return $this->belongsToMany('app\Ticket')
     }
 
 }

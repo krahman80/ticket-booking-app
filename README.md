@@ -17,8 +17,8 @@
 
 ## Feature
 * u̶s̶e̶r̶ c̶a̶n̶ l̶o̶g̶i̶n̶ u̶s̶i̶n̶g̶ f̶a̶c̶e̶b̶o̶o̶k̶/̶s̶o̶c̶i̶a̶l̶ a̶c̶c̶o̶u̶n̶t̶
-* user must login see concert list
-* user can see/find concert list
+* u̶s̶e̶r̶ m̶u̶s̶t̶ l̶o̶g̶i̶n̶ s̶e̶e̶ c̶o̶n̶c̶e̶r̶t̶ l̶i̶s̶t̶
+* u̶s̶e̶r̶ c̶a̶n̶ s̶e̶e̶/̶f̶i̶n̶d̶ c̶o̶n̶c̶e̶r̶t̶ l̶i̶s̶t̶
   * cache top 10 concert list
 * user can book concert ticket
   * when booked finish, user got email confirmation with pdf attached
@@ -31,29 +31,31 @@
 * maximum booking limit is 3 per user on the same concert
 * log user when booking action
 
-* admin can post concert
+* admin can manage concert
+  * a̶d̶m̶i̶n̶ c̶a̶n̶ l̶i̶s̶t̶ c̶o̶n̶c̶e̶r̶t̶
   * admin post concert with images
+  * show manage menu when login as admin
 
 ## To Do list
-* add laravel auth
-* add is_admin field to user
-* differentiate admin and regular user
+* a̶d̶d̶ l̶a̶r̶a̶v̶e̶l̶ a̶u̶t̶h̶
+* a̶d̶d̶ i̶s̶_̶a̶d̶m̶i̶n̶ f̶i̶e̶l̶d̶ t̶o̶ u̶s̶e̶r̶
+* d̶i̶f̶f̶e̶r̶e̶n̶t̶i̶a̶t̶e̶ a̶d̶m̶i̶n̶ a̶n̶d̶ r̶e̶g̶u̶l̶a̶r̶ u̶s̶e̶r̶
 * a̶d̶d̶ s̶o̶c̶i̶a̶l̶i̶t̶e̶ p̶a̶c̶k̶a̶g̶e̶ 
+* add booking on show concert page
 
 ## Database Model
 
 * customer/user
     > id, name, email, password
 
-* table concert
+* concert
     > id, concert_name, artist, date, venue, number_of_seat
 
-* table ticket
-    > id, serial_number, concert_id(fk), purchase_date, price, area
+* booking
+    > id, slug, user_id(fk), booking_time, status (not_paid, paid, expired)
 
-* order_ticket
-    > id, ticket_id(fk), order_id(fk)
+* ticket
+    > id, number, concert_id(fk), price
 
-* order
-    > id, user_id(fk), order_time, paid_time
-
+* booking_ticket
+    > id, ticket_id(fk), booking_id(fk), slug

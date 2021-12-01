@@ -11,7 +11,10 @@
       @guest
       <a href="{{ route('login')}}" class="badge badge-pill badge-primary py-2 px-3">Login</a>
       @else 
-      <a class="badge badge-pill badge-secondary py-2 px-3" href="{{ route('logout') }}"
+      <a href="{{ route('home') }}" class="badge badge-pill badge-primary py-2 px-3">home</a>
+      <a href="{{ route('user.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">concert</a>
+      <a href="#" class="badge badge-pill badge-primary py-2 px-3">my booking</a>
+      <a class="badge badge-pill badge-warning py-2 px-3" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
