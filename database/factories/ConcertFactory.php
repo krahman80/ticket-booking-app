@@ -8,9 +8,7 @@ use Faker\Generator as Faker;
 use Carbon\Carbon;
 
 $factory->define(Concert::class, function (Faker $faker) {
-    
     $now = Carbon::now();
-
     return [
         //
         'name' => $faker->company(),
@@ -20,3 +18,5 @@ $factory->define(Concert::class, function (Faker $faker) {
         'seat' => $faker->numberBetween(50, 100),
     ];
 });
+
+

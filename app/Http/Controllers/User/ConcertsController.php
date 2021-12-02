@@ -15,8 +15,9 @@ class ConcertsController extends Controller
 
     public function show($id) {
         // dd($request->get('id'));
+        // dd($ticket);
         $concert = Concert::findOrFail($id);
         return view('user.concert.show',['concert'=>$concert]);
-        // dd($id);
+        
     }
 }

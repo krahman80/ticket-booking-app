@@ -75,6 +75,7 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('javascript')
         </main>
     </div>
 </body>
