@@ -53,11 +53,11 @@
                         <table style="width:100%" class="table table-striped table-bordered my-3">
                             <thead>
                                 <tr>
-                                    <td>No.</td>
-                                    <td>Booking Code</td>
-                                    <td>Artist</td>
-                                    <td>Booking Date</td>
-                                    <td>Status</td>
+                                    <th>No.</th>
+                                    <th>Booking Code</th>
+                                    <th>Artist</th>
+                                    <th>Booking Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>

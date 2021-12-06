@@ -33,7 +33,9 @@ Route::group(
     {
     // Route::resource('user', 'ConcertsController');
     Route::get('concert', 'ConcertsController@index')->name('user.concert.index');
-    Route::get('concert/{id}', 'ConcertsController@show')->name('user.concert.show');   
+    Route::get('concert/{id}', 'ConcertsController@show')->name('user.concert.show');
+    Route::post('concert/add-to-cart', 'ConcertsController@addToCart')->name('add.to.cart');
+    Route::get('cart','CartsController@index')->name('user.cart.index');   
 });
 Auth::routes([
     'register' => false,
@@ -42,3 +44,12 @@ Auth::routes([
 ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('cart', function() {
+    $cart = session()->get('cart');
+    dd($cart);
+})->name('cart');
+
+Route::get('clear-cart', function() {    
+    session()->forget('cart');
+})->name('clear.cart');

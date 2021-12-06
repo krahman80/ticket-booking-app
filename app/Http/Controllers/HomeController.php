@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $concert = Concert::OrderBy('updated_at', 'desc')->take(6)->get();
+            
         // $cart = session()->get('cart','cart is empty');
         // dd($cart);
         //booking page

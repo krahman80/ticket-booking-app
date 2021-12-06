@@ -41,8 +41,10 @@
 * a̶d̶d̶ i̶s̶_̶a̶d̶m̶i̶n̶ f̶i̶e̶l̶d̶ t̶o̶ u̶s̶e̶r̶
 * d̶i̶f̶f̶e̶r̶e̶n̶t̶i̶a̶t̶e̶ a̶d̶m̶i̶n̶ a̶n̶d̶ r̶e̶g̶u̶l̶a̶r̶ u̶s̶e̶r̶
 * a̶d̶d̶ s̶o̶c̶i̶a̶l̶i̶t̶e̶ p̶a̶c̶k̶a̶g̶e̶ 
-* add session on home page
-* add booking on show concert page
+* a̶d̶d̶ b̶o̶o̶k̶i̶n̶g̶ o̶n̶ s̶h̶o̶w̶ c̶o̶n̶c̶e̶r̶t̶ p̶a̶g̶e̶
+* show cart list
+* remove chart item
+* add reduce chart quantity
 
 ## Database Model
 
