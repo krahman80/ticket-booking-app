@@ -12,8 +12,8 @@
                                     <th>No.</th>
                                     <th>Concert Name</th>
                                     <th>Artist Name</th>
-                                    <th>Price</th>
                                     <th>Qty</th>
+                                    <th>Price</th>
                                     <th>Sub Total</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -28,16 +28,18 @@
                                 @endphp
                                 @forelse ($cart as $key => $item)
                                 @php $total += $item['price'] * $item['qty'] @endphp
-                                <tr>
+                                <tr class="trow">
                                     <td>{{ $i++ }} </td>
                                     <td>{{ $item['concert-name'] }}</td>
                                     <td>{{ $item['artist-name'] }}</td>
-                                    <td><input type="number" value="{{ $item['qty'] }}" class="form-control" max=3 min=1 /></td>
+                                    <td class="qty">
+                                        <input type="number" value="{{ $item['qty'] }}" class="form-control" max=3 min=1 />
+                                    </td>
                                     <td>{{ $item['price'] }}</td>
-                                    <td data-th="Quantity">{{ $item['qty'] * $item['price'] }}</td>
-                                    <td data-th="">
+                                    <td data-th="quantity">{{ $item['qty'] * $item['price'] }}</td>
+                                    <td data-th="btn">
                                         <button class="btn btn-info btn-sm update-item" data-id="{{ $key }}"><i class="fa fa-refresh"></i></button>
-                                        <button class="btn btn-danger btn-sm delete-item" data-id="{{ $key }}"><i class="fa fa-trash-o"></i></button>
+                                        <button class="btn btn-danger btn-sm delete-item"><i class="fa fa-trash-o"></i></button>
                                     </td>
                                 </tr>                                    
                                 @empty
@@ -65,17 +67,32 @@
 <script>
 
 const updateBtn = document.getElementsByClassName('update-item');
-for (let i = 0; i < updateBtn.length; i++) {
-    updateBtn[i].addEventListener('click', updateDetail);
-}
 
-function updateDetail(e) {
-    e.preventDefault();    
-    const test = e.target.getAttribute("data-id");
-    console.log(test);
-    // test.parents("tr").find(".quantity").val()
+Array.from(updateBtn).forEach(v => v.addEventListener('click', function() {
+    const dataid = this.getAttribute('data-id');
+    
+    const trow = this.closest(".trow");
+    let qty;
+    for (var i = 0; i < trow.childNodes.length; i++) {
+        if (trow.childNodes[i].className == "qty") {
+            qty = trow.childNodes[i].childNodes[1].value;
+        break;
+        }        
+    }
+    // console.log(dataid + '-' + notes);
+    $.ajax({
+        url: '{{ route('user.cart.update') }}',
+        method: "patch",
+        data: {_token: '{{ csrf_token() }}', id: dataid, qty: qty},
+        success: function (response) {
+            // window.location.reload();
+            console.log(response);
+        }
+    });
 
-}
+}));
+
+
 
 </script>    
 @endsection

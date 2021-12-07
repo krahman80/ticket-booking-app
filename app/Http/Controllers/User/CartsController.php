@@ -16,7 +16,26 @@ class CartsController extends Controller
     public function index()
     {
         $cart = session()->get('cart');
+        if(!$cart){
+            abort(404); 
+        }
         return view('user.cart.index',['cart' => $cart]);
+    }
+
+    public function update(Request $request){
+
+        $id = $request->input('id');
+        $qty = $request->input('qty');
+
+        $cart = session()->get('cart');
+        $cart[$id]["qty"] = $qty;
+        
+        session()->put('cart', $cart);
+
+        return response()->json([
+            'status' => 'updated-'.$id.'-'.$qty
+        ]);
+
     }
 
 }

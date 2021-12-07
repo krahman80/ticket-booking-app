@@ -35,7 +35,8 @@ Route::group(
     Route::get('concert', 'ConcertsController@index')->name('user.concert.index');
     Route::get('concert/{id}', 'ConcertsController@show')->name('user.concert.show');
     Route::post('concert/add-to-cart', 'ConcertsController@addToCart')->name('add.to.cart');
-    Route::get('cart','CartsController@index')->name('user.cart.index');   
+    Route::get('cart','CartsController@index')->name('user.cart.index');
+    Route::patch('cart/update', 'CartsController@update')->name('user.cart.update');   
 });
 Auth::routes([
     'register' => false,
