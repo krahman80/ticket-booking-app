@@ -14,13 +14,13 @@
       <a href="{{ route('home') }}" class="badge badge-pill badge-primary py-2 px-3">home</a>
       <a href="{{ route('user.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">concert</a>
       <a href="#" class="badge badge-pill badge-primary py-2 px-3">booking</a>
-      @if (session()->has('cart'))
+      {{-- @if (session()->has('cart')) --}}
         <a href="{{ route('user.cart.index') }}" class="badge badge-pill badge-primary py-2 px-3">
-          cart <span class="badge badge-light">{{ 
-            count(session()->get('cart'))
-            }}</span>
+          cart <span class="badge badge-light"> 
+          {{ (session()->has('cart')) ? count(session()->get('cart')) : 0}}
+          </span>
         </a>
-      @endif
+      {{-- @endif --}}
       <a class="badge badge-pill badge-warning py-2 px-3" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

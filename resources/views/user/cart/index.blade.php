@@ -39,12 +39,12 @@
                                     <td data-th="quantity">{{ $item['qty'] * $item['price'] }}</td>
                                     <td data-th="btn">
                                         <button class="btn btn-info btn-sm update-item" data-id="{{ $key }}"><i class="fa fa-refresh"></i></button>
-                                        <button class="btn btn-danger btn-sm delete-item"><i class="fa fa-trash-o"></i></button>
+                                        <button class="btn btn-danger btn-sm delete-item" data-id="{{ $key }}"><i class="fa fa-trash-o"></i></button>
                                     </td>
                                 </tr>                                    
                                 @empty
                                 <tr>
-                                    <td colspan="5">No data</td>
+                                    <td colspan="5">Cart is empty</td>
                                 </tr>                                    
                                 @endforelse
                             </tbody>
@@ -55,8 +55,21 @@
                                 </tr>
                         </table>
                         <div class="d-flex">
-                            <div class="mr-auto p-1"><a href="{{ url('user.concert.index') }}" class="btn btn-sm btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a></div>
-                            <div class="p-1"><a href="{{ url('user.concert.index') }}" class="btn btn-sm btn-primary">Checkout&nbsp;<i class="fa fa-angle-right"></i></a></div>
+                            @if (count($cart))
+                            <div class="mr-auto p-1"><a href="{{ url('user.concert.index') }}" class="btn btn-sm btn-primary"><i class="fa fa-angle-left"></i> back to concert page</a></div>
+                            <div class="p-1">
+                                <a href="{{ route('place.order') }}" 
+                                   class="btn btn-sm btn-primary" 
+                                   id="checkoutBtn"
+                                   
+                                   >
+                                    Checkout&nbsp;<i class="fa fa-angle-right"></i>
+                                </a>
+                                <form id="checkout-form" action="{{ route('place.order') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>                                
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -67,6 +80,8 @@
 <script>
 
 const updateBtn = document.getElementsByClassName('update-item');
+const deleteBtn = document.getElementsByClassName('delete-item');
+const checkoutBtn = document.getElementById('checkoutBtn');
 
 Array.from(updateBtn).forEach(v => v.addEventListener('click', function() {
     const dataid = this.getAttribute('data-id');
@@ -85,14 +100,35 @@ Array.from(updateBtn).forEach(v => v.addEventListener('click', function() {
         method: "patch",
         data: {_token: '{{ csrf_token() }}', id: dataid, qty: qty},
         success: function (response) {
-            // window.location.reload();
-            console.log(response);
+            window.location.reload();
+            // console.log(response);
         }
     });
 
 }));
 
 
+Array.from(deleteBtn).forEach(v => v.addEventListener('click', function() {
+    const dataid = this.getAttribute('data-id');
+
+    // console.log(dataid);
+    $.ajax({
+        url: '{{ route('user.cart.delete') }}',
+        method: "delete",
+        data: {_token: '{{ csrf_token() }}', id: dataid},
+        success: function (response) {
+            window.location.reload();
+            // console.log(response);
+        }
+    });
+
+}));
+
+checkoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    // console.log(this);
+    document.getElementById('checkout-form').submit();
+});
 
 </script>    
 @endsection

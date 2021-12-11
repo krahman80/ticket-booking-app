@@ -42,9 +42,10 @@
 * d̶i̶f̶f̶e̶r̶e̶n̶t̶i̶a̶t̶e̶ a̶d̶m̶i̶n̶ a̶n̶d̶ r̶e̶g̶u̶l̶a̶r̶ u̶s̶e̶r̶
 * a̶d̶d̶ s̶o̶c̶i̶a̶l̶i̶t̶e̶ p̶a̶c̶k̶a̶g̶e̶ 
 * a̶d̶d̶ b̶o̶o̶k̶i̶n̶g̶ o̶n̶ s̶h̶o̶w̶ c̶o̶n̶c̶e̶r̶t̶ p̶a̶g̶e̶
-* show cart list
-* remove chart item
-* add reduce chart quantity
+* s̶h̶o̶w̶ c̶a̶r̶t̶ l̶i̶s̶t̶
+* r̶e̶m̶o̶v̶e̶ c̶h̶a̶r̶t̶ i̶t̶e̶m̶
+* u̶p̶d̶a̶t̶e̶ c̶h̶a̶r̶t̶ q̶u̶a̶n̶t̶i̶t̶y̶
+* checkout order
 
 ## Database Model
 

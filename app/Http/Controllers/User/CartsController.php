@@ -17,7 +17,8 @@ class CartsController extends Controller
     {
         $cart = session()->get('cart');
         if(!$cart){
-            abort(404); 
+            // abort(404);
+            $cart = []; 
         }
         return view('user.cart.index',['cart' => $cart]);
     }
@@ -33,9 +34,27 @@ class CartsController extends Controller
         session()->put('cart', $cart);
 
         return response()->json([
-            'status' => 'updated-'.$id.'-'.$qty
+            'status' => 'session updated'
         ]);
 
+    }
+
+    public function delete(Request $request){
+        $id = $request->input('id');
+
+        $cart = session()->get('cart');
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart',$cart);
+        }
+
+        // if(count($cart) == 0){
+        //     return redirect()->route('user.concert.index');
+        // }
+
+        return response()->json([
+            'status' => 'session deleted'
+        ]);
     }
 
 }
