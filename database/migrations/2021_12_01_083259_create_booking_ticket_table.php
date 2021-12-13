@@ -18,6 +18,11 @@ class CreateBookingTicketTable extends Migration
             $table->foreignId('ticket_id')->constrained();
             $table->foreignId('booking_id')->constrained();
             $table->string('slug');
+            $table->string('artist_name');
+            $table->string('concert_name');
+            $table->decimal('price', 6, 2);
+            $table->decimal('total_price', 6, 2);
+            $table->tinyInteger('qty')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -38,7 +38,10 @@ Route::group(
     Route::get('cart','CartsController@index')->name('user.cart.index');
     Route::patch('cart/update', 'CartsController@update')->name('user.cart.update');
     Route::delete('cart/delete', 'CartsController@delete')->name('user.cart.delete');
-    Route::post('booking/place-order', 'BookingsController@placeOrder')->name('place.order');   
+    Route::post('booking/place-order', 'BookingsController@placeOrder')->name('place.order');
+    
+    Route::get('booking/index','BookingsController@index')->name('user.booking.index');
+    Route::get('booking/{id}', 'BookingsController@show')->name('user.booking.show');
 });
 Auth::routes([
     'register' => false,

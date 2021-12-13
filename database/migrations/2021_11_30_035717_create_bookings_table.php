@@ -18,7 +18,7 @@ class CreateBookingsTable extends Migration
             $table->string('slug');
             $table->foreignId('user_id')->constrained();
             $table->datetime('booking_time');
-            $table->string('status')->nullable()->default(null);
+            $table->tinyInteger('status')->unsigned()->default(0);
             $table->timestamps();
         });
     }

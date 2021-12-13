@@ -13,8 +13,9 @@ class Ticket extends Model
         return $this->belongsTo('App\Concert');
     }
 
-    public function booking() {
-        return $this->belongsToMany('App\Booking');
-    }
+    // public function bookings() {
+    //     return $this->belongsToMany('App\Booking');
+    // }
+
 }
 

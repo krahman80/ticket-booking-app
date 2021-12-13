@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Ticket::class, function (Faker $faker) {
     return [
-        'slug' =>  uniqid('tb'),
+        'slug' =>  uniqid('tk'),
         'concert_id' => function() {
             return factory(App\Ticket::class)->create()->id;
         },

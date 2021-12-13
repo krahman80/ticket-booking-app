@@ -50,29 +50,33 @@
                         </div>
                         <hr/>
                         <h3 class="h3">Recent Booking</h3>
-                        <table style="width:100%" class="table table-striped table-bordered my-3">
+                        <table class="table table-sm table-striped table-bordered my-3">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Booking Code</th>
-                                    <th>Artist</th>
-                                    <th>Booking Date</th>
-                                    <th>Status</th>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">Booking Code</th>
+                                    <th scope="col">Booking Date</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($booking as $item)
                                 <tr>
-                                    <td>1.</td>
-                                    <td>bk9177737177512</td>
-                                    <td>Black Eyed Peas</td>
-                                    <td>2021 12 10 23:23:00</td>
-                                    <td>not paid</td>
-                                </tr>
-                            </tbody>
+                                    <td scope="row">1.</td>
+                                    <td scope="row"><a href="{{ route('user.booking.show',['id' => $item->id]) }}" class="link-text">{{ $item->slug }}</a></td>
+                                    <td scope="row">{{ $item->booking_time}}</td>
+                                    <td scope="row">{{ $item->booking_status}}</td>
+                                </tr>                                    
+                                @empty
+                                <tr>
+                                    <td scope="row" colspan="4" class="text-center">No data available</td>
+                                </tr>                                   
+                                @endforelse
+                             </tbody>
                         </table>
 
                         <div class="d-flex justify-content-end py-2">           
-                        <a href="#" class="badge badge-pill badge-primary py-2 px-3">Boking page</a>
+                        <a href="{{ route('user.booking.index') }}" class="badge badge-pill badge-primary py-2 px-3">Boking page</a>
                         </div>
                     </div>
             </div>

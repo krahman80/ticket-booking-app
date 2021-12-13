@@ -28,7 +28,7 @@
 * u̶s̶e̶r̶ m̶u̶s̶t̶ p̶a̶y̶ w̶i̶t̶h̶i̶n̶ 2̶4̶ h̶o̶u̶r̶ a̶f̶t̶e̶r̶ b̶o̶o̶k̶i̶n̶g̶  
   * w̶h̶e̶n̶ p̶a̶y̶m̶e̶n̶t̶ i̶s̶ d̶o̶n̶e̶,̶ u̶s̶e̶r̶ m̶u̶s̶t̶ c̶o̶n̶f̶i̶r̶m̶ p̶a̶y̶m̶e̶n̶t̶ v̶i̶a̶ a̶p̶p̶s̶ o̶r̶ e̶m̶a̶i̶l̶
   * w̶h̶e̶n̶ p̶a̶y̶m̶e̶n̶t̶ i̶s̶ d̶o̶n̶e̶,̶ s̶e̶n̶d̶ e̶m̶a̶i̶l̶ c̶o̶n̶f̶i̶r̶m̶a̶t̶i̶o̶n̶ t̶o̶ a̶d̶m̶i̶n̶
-* maximum booking limit is 3 per user on the same concert
+* m̶a̶x̶i̶m̶u̶m̶ b̶o̶o̶k̶i̶n̶g̶ l̶i̶m̶i̶t̶ i̶s̶ 3̶ p̶e̶r̶ u̶s̶e̶r̶ o̶n̶ t̶h̶e̶ s̶a̶m̶e̶ c̶o̶n̶c̶e̶r̶t̶
 * log user when booking action
 
 * admin can manage concert
@@ -46,6 +46,12 @@
 * r̶e̶m̶o̶v̶e̶ c̶h̶a̶r̶t̶ i̶t̶e̶m̶
 * u̶p̶d̶a̶t̶e̶ c̶h̶a̶r̶t̶ q̶u̶a̶n̶t̶i̶t̶y̶
 * checkout order
+* add expired attribute in booking Model
+* add countdown javascript
+* add schedulling validate booking
+* c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
+* generate ticket pdf
+* fixed quantity in ticket
 
 ## Database Model
 
@@ -62,4 +68,4 @@
     > id, number, concert_id(fk), price
 
 * booking_ticket
-    > id, ticket_id(fk), booking_id(fk), slug
+    > id, ticket_id(fk), booking_id(fk), slug, qty, total price, each price

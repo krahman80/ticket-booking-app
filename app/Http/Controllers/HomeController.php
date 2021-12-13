@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Concert;
+use App\Booking;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $concert = Concert::OrderBy('updated_at', 'desc')->take(6)->get();
-            
+        $booking = Booking::OrderBy('created_at','desc')->take(1)->get();            
         // $cart = session()->get('cart','cart is empty');
         // dd($cart);
         //booking page
-        return view('user.home',['concerts' => $concert]);
+        return view('user.home',['concerts' => $concert, 'booking' => $booking]);
     }
 }

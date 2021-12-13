@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,5 +19,7 @@ class DatabaseSeeder extends Seeder
                     'concert_id' => $concert->id]);
                 $concert->ticket()->save($ticket);
             });
+
+        factory('App\User', 1)->create(); 
     }
 }

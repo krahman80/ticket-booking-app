@@ -44,7 +44,7 @@
                                 </tr>                                    
                                 @empty
                                 <tr>
-                                    <td colspan="5">Cart is empty</td>
+                                    <td colspan="5" class="text-center">Cart is empty</td>
                                 </tr>                                    
                                 @endforelse
                             </tbody>
@@ -101,7 +101,7 @@ Array.from(updateBtn).forEach(v => v.addEventListener('click', function() {
         data: {_token: '{{ csrf_token() }}', id: dataid, qty: qty},
         success: function (response) {
             window.location.reload();
-            // console.log(response);
+            // console.log(response.status);
         }
     });
 
@@ -118,17 +118,21 @@ Array.from(deleteBtn).forEach(v => v.addEventListener('click', function() {
         data: {_token: '{{ csrf_token() }}', id: dataid},
         success: function (response) {
             window.location.reload();
-            // console.log(response);
+            // console.log(response.status);
         }
     });
 
 }));
 
-checkoutBtn.addEventListener('click', function(e) {
+if (typeof(checkoutBtn) != 'undefined' && checkoutBtn != null)
+{
+    checkoutBtn.addEventListener('click', function(e) {
     e.preventDefault();
     // console.log(this);
     document.getElementById('checkout-form').submit();
-});
+    });
+}
+
 
 </script>    
 @endsection

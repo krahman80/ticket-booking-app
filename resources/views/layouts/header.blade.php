@@ -13,7 +13,7 @@
       @else 
       <a href="{{ route('home') }}" class="badge badge-pill badge-primary py-2 px-3">home</a>
       <a href="{{ route('user.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">concert</a>
-      <a href="#" class="badge badge-pill badge-primary py-2 px-3">booking</a>
+      <a href="{{ route('user.booking.index') }}" class="badge badge-pill badge-primary py-2 px-3">booking</a>
       {{-- @if (session()->has('cart')) --}}
         <a href="{{ route('user.cart.index') }}" class="badge badge-pill badge-primary py-2 px-3">
           cart <span class="badge badge-light"> 
