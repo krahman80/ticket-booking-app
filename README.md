@@ -49,6 +49,7 @@
 * add expired attribute in booking Model
 * add countdown javascript
 * add schedulling validate booking
+* add transaction where booking is finished (reduce seat)
 * c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
 * generate ticket pdf
 * fixed quantity in ticket
