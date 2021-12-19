@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Booking;
 use App\Ticket;
+use App\Concert;
 use Auth;
 use DB;
 
@@ -21,8 +22,8 @@ class BookingsController extends Controller
 
 
             DB::transaction(function () use ($userId,$time,$cart) {
-                // Possibly failing DB query
                 
+                /* insert booking table */
                 $booking = new Booking([
                     'slug' => uniqid('bk'),
                     'user_id' => $userId,
@@ -31,14 +32,12 @@ class BookingsController extends Controller
                 ]);
                 $booking->save();
 
-                // Caching query that we don't want to run if the above query fails
-                // get session insert detail item into db
-
+                /* insert booking ticket */
                 $ticket_data = [];
 
                 foreach ($cart as $key => $value) {
                     $ticket_data[] = [
-                        'ticket_id' => $key,
+                        'ticket_id' => $value['ticket-id'], 
                         'booking_id' => $booking->id,
                         'slug' => uniqid('bkt'),
                         'artist_name' => $value['artist-name'],
@@ -48,14 +47,25 @@ class BookingsController extends Controller
                         'total_price' => $value['qty']*$value['price']
                     ];
                 }
-
                 $booking->tickets()->attach($ticket_data);
+
+                /* reduce seat */ 
+                foreach ($cart as $key1 => $value1) {
+                    DB::table('concerts')
+                    ->where('id', $key1)
+                    ->decrement('seat',$value1['qty']);
+                }
 
             });
 
-            /* unset session */
+            /* destroy cart */
             session()->forget('cart');
         }
+
+        /* add event */
+
+        /* add email jobs*/
+
         // got to booking page index
         return redirect()->route('user.booking.index');
          

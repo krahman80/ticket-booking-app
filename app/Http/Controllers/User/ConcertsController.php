@@ -19,7 +19,8 @@ class ConcertsController extends Controller
         // dd($request->get('id'));
         // dd($ticket);
         $concert = Concert::findOrFail($id);
-        return view('user.concert.show',['concert'=>$concert]);
+        $ticket = Ticket::findOrFail($concert->id);
+        return view('user.concert.show',['concert' => $concert, 'ticket' => $ticket]);
         
     }
 
@@ -33,6 +34,7 @@ class ConcertsController extends Controller
             $cart = [
                     $concert->id => [
                         "id" => $concert->ticket->slug,
+                        "ticket-id" => $request->input('ticketId'),
                         "concert-name" => $concert->name,
                         "artist-name" => $concert->artist,
                         "qty" => 1,

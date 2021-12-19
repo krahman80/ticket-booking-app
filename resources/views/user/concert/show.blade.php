@@ -18,6 +18,7 @@
                         <form action="{{ route('add.to.cart') }}" method="post">
                         @csrf
                             <input type="hidden" name="id" value="{{ $concert->id }}">
+                            <input type="hidden" name="ticketId" value="{{ $ticket->id }}" >
                             <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">Add to Cart</button>
                             </div>
