@@ -45,11 +45,12 @@
 * s̶h̶o̶w̶ c̶a̶r̶t̶ l̶i̶s̶t̶
 * r̶e̶m̶o̶v̶e̶ c̶h̶a̶r̶t̶ i̶t̶e̶m̶
 * u̶p̶d̶a̶t̶e̶ c̶h̶a̶r̶t̶ q̶u̶a̶n̶t̶i̶t̶y̶
-* checkout order
-* add expired attribute in booking Model
+* c̶h̶e̶c̶k̶o̶u̶t̶ o̶r̶d̶e̶r̶
+* a̶d̶d̶ e̶x̶p̶i̶r̶e̶d̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶ i̶n̶ b̶o̶o̶k̶i̶n̶g̶ M̶o̶d̶e̶l̶
 * add countdown javascript
-* add schedulling validate booking
-* add transaction where booking is finished (reduce seat)
+* add schedulling validate booking (cron)
+* add email notification to user
+* a̶d̶d̶ t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶ w̶h̶e̶r̶e̶ b̶o̶o̶k̶i̶n̶g̶ i̶s̶ f̶i̶n̶i̶s̶h̶e̶d̶ (̶r̶e̶d̶u̶c̶e̶ s̶e̶a̶t̶)̶
 * c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
 * generate ticket pdf
 * fixed quantity in ticket

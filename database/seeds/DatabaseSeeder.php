@@ -13,13 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
-        factory('App\Concert',10)->create()->each(
+        factory('App\Concert',15)->create()->each(
             function($concert){
                 $ticket = factory('App\Ticket')->make([
                     'concert_id' => $concert->id]);
                 $concert->ticket()->save($ticket);
             });
 
-        factory('App\User', 1)->create(); 
+        factory('App\User', 3)->create(); 
     }
 }
