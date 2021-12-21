@@ -22,7 +22,7 @@ Route::group(
     ], function()
     {
     // Route::resource('user', 'ConcertsController');
-    Route::get('concert', 'ConcertsController@index');
+    Route::get('concert', 'ConcertsController@index')->name('admin.concert.index');
     }
 );
 Route::group(

@@ -48,6 +48,8 @@
                         <div class="d-flex justify-content-end py-2">           
                         <a href="{{ route('user.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">More concert</a>
                         </div>
+
+                        @can('place-order', auth()->user())
                         <hr/>
                         <h3 class="h3">Recent Booking</h3>
                         <table class="table table-sm table-striped table-bordered my-3">
@@ -72,12 +74,14 @@
                                     <td scope="row" colspan="4" class="text-center">No data available</td>
                                 </tr>                                   
                                 @endforelse
-                             </tbody>
+                            </tbody>
                         </table>
 
                         <div class="d-flex justify-content-end py-2">           
                         <a href="{{ route('user.booking.index') }}" class="badge badge-pill badge-primary py-2 px-3">Boking page</a>
-                        </div>
+                        </div>    
+                        @endcan
+
                     </div>
             </div>
 

@@ -23,6 +23,6 @@ class AdminAuthentication
             }
         }
 
-        return redirect(route('home'))->with('msg', 'not authorize!');
+        return abort(401);
     }
 }

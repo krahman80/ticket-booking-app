@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Concert;
 use App\Ticket;
@@ -26,6 +26,11 @@ class ConcertsController extends Controller
 
     public function addToCart(Request $request)
     {
+
+        if (!Gate::allows('place-order', auth()->user())) {
+            abort(403);
+        }
+
         $concert = Concert::findOrFail($request->input('id'));        
 
         $cart = session()->get('cart');

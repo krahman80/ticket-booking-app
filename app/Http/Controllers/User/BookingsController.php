@@ -9,6 +9,7 @@ use App\Ticket;
 use App\Concert;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Gate;
 
 class BookingsController extends Controller
 {
@@ -72,11 +73,17 @@ class BookingsController extends Controller
     }
 
     public function index() {
+        if (!Gate::allows('place-order', auth()->user())) {
+            abort(403);
+        }
         $bookings = Booking::orderBy('created_at', 'desc')->get();
         return view('user.booking.index',['bookings' => $bookings]);
     }
 
     public function show($id) {
+        if (!Gate::allows('place-order', auth()->user())) {
+            abort(403);
+        }
         $booking = Booking::findOrFail($id);
         // dd($booking->tickets);
         // foreach ($booking->tickets as $ticket) {

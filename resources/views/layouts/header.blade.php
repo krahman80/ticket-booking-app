@@ -10,17 +10,22 @@
     <p>
       @guest
       <a href="{{ route('login')}}" class="badge badge-pill badge-primary py-2 px-3">Login</a>
-      @else 
+      @else
       <a href="{{ route('home') }}" class="badge badge-pill badge-primary py-2 px-3">home</a>
       <a href="{{ route('user.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">concert</a>
-      <a href="{{ route('user.booking.index') }}" class="badge badge-pill badge-primary py-2 px-3">booking</a>
-      {{-- @if (session()->has('cart')) --}}
+      @can('place-order', auth()->user())
+        <a href="{{ route('user.booking.index') }}" class="badge badge-pill badge-primary py-2 px-3">booking</a>
+        {{-- @if (session()->has('cart')) --}}
         <a href="{{ route('user.cart.index') }}" class="badge badge-pill badge-primary py-2 px-3">
           cart <span class="badge badge-light"> 
           {{ (session()->has('cart')) ? count(session()->get('cart')) : 0}}
           </span>
         </a>
-      {{-- @endif --}}
+      {{-- @endif --}}        
+      @endcan
+      @can('update-concert', auth()->user())
+        <a href="{{ route('admin.concert.index') }}" class="badge badge-pill badge-primary py-2 px-3">manage-concert</a>         
+      @endcan  
       <a class="badge badge-pill badge-warning py-2 px-3" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

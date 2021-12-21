@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+
 
 class CartsController extends Controller
 {
@@ -15,6 +17,11 @@ class CartsController extends Controller
      */
     public function index()
     {
+        
+        if (!Gate::allows('place-order', auth()->user())) {
+            abort(403);
+        }
+
         $cart = session()->get('cart');
         if(!$cart){
             // abort(404);
