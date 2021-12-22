@@ -11,6 +11,8 @@ use Auth;
 use DB;
 use Illuminate\Support\Facades\Gate;
 
+use App\Jobs\SendAdminBookingEmail;
+
 class BookingsController extends Controller
 {
     public function placeOrder(Request $request){
@@ -18,7 +20,7 @@ class BookingsController extends Controller
         if ($request->input('_token')!= null) {
 
             $cart = session()->get('cart');
-            $userId = Auth::user()->id;
+            $userId = auth()->user()->id;
             $time = now()->format('Y-m-d H:i:s');
 
 
@@ -58,7 +60,7 @@ class BookingsController extends Controller
                 }
 
             });
-
+            
             /* destroy cart */
             session()->forget('cart');
         }
@@ -66,6 +68,7 @@ class BookingsController extends Controller
         /* add event */
 
         /* add email jobs*/
+        SendAdminBookingEmail::dispatch(auth()->user()->email);
 
         // got to booking page index
         return redirect()->route('user.booking.index');
@@ -73,7 +76,7 @@ class BookingsController extends Controller
     }
 
     public function index() {
-        if (!Gate::allows('place-order', auth()->user())) {
+        if (Gate::denies('user-only', auth()->user())) {
             abort(403);
         }
         $bookings = Booking::orderBy('created_at', 'desc')->get();
@@ -81,7 +84,7 @@ class BookingsController extends Controller
     }
 
     public function show($id) {
-        if (!Gate::allows('place-order', auth()->user())) {
+        if (Gate::denies('user-only', auth()->user())) {
             abort(403);
         }
         $booking = Booking::findOrFail($id);

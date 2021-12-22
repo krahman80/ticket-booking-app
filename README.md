@@ -22,7 +22,7 @@
   * cache top 10 concert list
 * user can book concert ticket
   * when booked finish, user got email confirmation with pdf attached
-  * when booked finish, number of seat is reduced
+  * w̶h̶e̶n̶ b̶o̶o̶k̶e̶d̶ f̶i̶n̶i̶s̶h̶,̶ n̶u̶m̶b̶e̶r̶ o̶f̶ s̶e̶a̶t̶ i̶s̶ r̶e̶d̶u̶c̶e̶d̶
   * when booked finish, admin get email confirmation 
   * a̶n̶d̶ w̶i̶t̶h̶i̶n̶ 2̶4̶ h̶o̶u̶r̶ m̶u̶s̶t̶ p̶a̶y̶
 * u̶s̶e̶r̶ m̶u̶s̶t̶ p̶a̶y̶ w̶i̶t̶h̶i̶n̶ 2̶4̶ h̶o̶u̶r̶ a̶f̶t̶e̶r̶ b̶o̶o̶k̶i̶n̶g̶  
@@ -34,7 +34,7 @@
 * admin can manage concert
   * a̶d̶m̶i̶n̶ c̶a̶n̶ l̶i̶s̶t̶ c̶o̶n̶c̶e̶r̶t̶
   * admin post concert with images
-  * show manage menu when login as admin
+  * s̶h̶o̶w̶ m̶a̶n̶a̶g̶e̶ m̶e̶n̶u̶ w̶h̶e̶n̶ l̶o̶g̶i̶n̶ a̶s̶ a̶d̶m̶i̶n̶
 
 ## To Do list
 * a̶d̶d̶ l̶a̶r̶a̶v̶e̶l̶ a̶u̶t̶h̶
@@ -51,8 +51,7 @@
 * add schedulling validate booking (cron)
 * add schedulling to change status expired concert
 * add email notification to user
-* add Gate/policies for admin to update concert
-* a̶d̶d̶ g̶a̶t̶e̶ f̶o̶r̶ u̶s̶e̶r̶ t̶o̶ b̶o̶o̶k̶ c̶o̶n̶c̶e̶r̶t̶ t̶i̶c̶k̶e̶t̶ (̶a̶d̶m̶i̶n̶ n̶o̶t̶ a̶l̶l̶o̶w̶e̶d̶ t̶o̶ b̶o̶o̶k̶ c̶o̶n̶c̶e̶r̶t̶)̶
+* a̶d̶d̶ G̶a̶t̶e̶/̶p̶o̶l̶i̶c̶i̶e̶s̶ f̶o̶r̶ u̶s̶e̶r̶ a̶n̶d̶ a̶d̶m̶i̶n̶
 * a̶d̶d̶ t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶ w̶h̶e̶r̶e̶ b̶o̶o̶k̶i̶n̶g̶ i̶s̶ f̶i̶n̶i̶s̶h̶e̶d̶ (̶r̶e̶d̶u̶c̶e̶ s̶e̶a̶t̶)̶
 * c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
 * generate ticket pdf

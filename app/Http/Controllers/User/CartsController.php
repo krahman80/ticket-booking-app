@@ -18,13 +18,12 @@ class CartsController extends Controller
     public function index()
     {
         
-        if (!Gate::allows('place-order', auth()->user())) {
+        if (!Gate::allows('user-only', auth()->user())) {
             abort(403);
         }
 
         $cart = session()->get('cart');
         if(!$cart){
-            // abort(404);
             $cart = []; 
         }
         return view('user.cart.index',['cart' => $cart]);

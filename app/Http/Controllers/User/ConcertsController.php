@@ -27,7 +27,7 @@ class ConcertsController extends Controller
     public function addToCart(Request $request)
     {
 
-        if (!Gate::allows('place-order', auth()->user())) {
+        if (!Gate::allows('user-only', auth()->user())) {
             abort(403);
         }
 

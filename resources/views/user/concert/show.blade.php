@@ -15,7 +15,7 @@
                         </p>
                         <hr/>
                         <div class="row"><div class="col-md-4">
-                        @can('place-order', auth()->user())
+                        @can('user-only', auth()->user())
                             <form action="{{ route('add.to.cart') }}" method="post">
                             @csrf
                                 <input type="hidden" name="id" value="{{ $concert->id }}">
