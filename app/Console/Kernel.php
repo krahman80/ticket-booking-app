@@ -36,12 +36,12 @@ class Kernel extends ConsoleKernel
         */
 
         // $schedule->command('inspire')->hourly();
-        
+        // update status become expired if there are no payment 48 hour after booking
         $now = Carbon::now()->format('Y-m-d H:i:s');       
         $schedule->call(function () use ($now){
-            Booking::where('booking_time', '<', $now)
+            Booking::where('expired_time', '<=', $now)
             ->where('status', 0)
-            ->update(['status' => 1]);
+            ->update(['status' => 2]);
         })->everyMinute();
     }
 

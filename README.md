@@ -48,7 +48,7 @@
 * c̶h̶e̶c̶k̶o̶u̶t̶ o̶r̶d̶e̶r̶
 * a̶d̶d̶ e̶x̶p̶i̶r̶e̶d̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶ i̶n̶ b̶o̶o̶k̶i̶n̶g̶ M̶o̶d̶e̶l̶
 * add countdown javascript
-* add schedulling validate booking (cron)
+* a̶d̶d̶ s̶c̶h̶e̶d̶u̶l̶l̶i̶n̶g̶ v̶a̶l̶i̶d̶a̶t̶e̶ b̶o̶o̶k̶i̶n̶g̶ (̶c̶r̶o̶n̶)̶
 * a̶d̶d̶ s̶c̶h̶e̶d̶u̶l̶l̶i̶n̶g̶ t̶o̶ c̶h̶a̶n̶g̶e̶ s̶t̶a̶t̶u̶s̶ e̶x̶p̶i̶r̶e̶d̶ c̶o̶n̶c̶e̶r̶t̶
 * a̶d̶d̶ b̶o̶o̶k̶i̶n̶g̶ n̶o̶t̶i̶f̶i̶c̶a̶t̶i̶o̶n̶ t̶o̶ a̶d̶m̶i̶n̶
 * a̶d̶d̶ G̶a̶t̶e̶/̶p̶o̶l̶i̶c̶i̶e̶s̶ f̶o̶r̶ u̶s̶e̶r̶ a̶n̶d̶ a̶d̶m̶i̶n̶
@@ -67,7 +67,7 @@
     > id, concert_name, artist, date, venue, number_of_seat
 
 * booking
-    > id, slug, user_id(fk), booking_time, status (not_paid, paid, expired)
+    > id, slug, user_id(fk), booking_time, expired_time, status (not_paid, paid, expired)
 
 * ticket
     > id, number, concert_id(fk), price

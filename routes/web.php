@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Jobs\SendAdminBookingEmail;
 
+use Carbon\Carbon;
+use App\Booking;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,3 +61,12 @@ Route::get('cart', function() {
 Route::get('clear-cart', function() {    
     session()->forget('cart');
 })->name('clear.cart');
+
+Route::get('test', function() {
+    $now = Carbon::now()->format('Y-m-d H:i:s');
+    $expired = Carbon::now()->addDays(2);
+    dd($expired->format('Y-m-d H:i:s'));
+    // Booking::where('expired', '<', $now)->update(['status' => 0]);
+    // $booking = Booking::where('booking_time', '<', $now)->get();
+    // dd($booking);
+})->name('test');

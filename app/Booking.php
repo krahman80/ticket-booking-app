@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Booking extends Model
 {
-    protected $fillable = ['user_id','slug','booking_time','status'];   
+    protected $fillable = ['user_id','slug','booking_time','status','expired_time'];   
 
     public function tickets() {
         return $this->belongsToMany('App\Ticket','booking_ticket','booking_id','ticket_id')
@@ -15,11 +15,11 @@ class Booking extends Model
                         ->withTimestamps();
     }
 
-    public function getExpiredAttribute()
-    {
-        $expired = new Carbon($this->booking_time);
-        return $expired->addDays(1);
-    }
+    // public function getExpiredAttribute()
+    // {
+    //     $expired = new Carbon($this->booking_time);
+    //     return $expired->addDays(1);
+    // }
 
     public function getBookingStatusAttribute()
     {

@@ -26,7 +26,7 @@
                                 <td>{{ $i++ }}</td>
                                 <td><a href="{{ route('user.booking.show',['id'=> $item->id]) }}" class="">{{ $item->slug }}</a></td>
                                 <td>{{ $item->booking_time }}</td>
-                                <td class="text-danger">{{ $item->expired }}</td>
+                                <td class="text-danger">{{ $item->expired_time }}</td>
                                 <td>{{ $item->booking_status }}</td>
                             </tr>
                         @empty

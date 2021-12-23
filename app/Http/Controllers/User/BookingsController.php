@@ -10,6 +10,7 @@ use App\Concert;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Gate;
+use Carbon\Carbon;
 
 use App\Jobs\SendAdminBookingEmail;
 
@@ -21,17 +22,17 @@ class BookingsController extends Controller
 
             $cart = session()->get('cart');
             $userId = auth()->user()->id;
-            $time = now()->format('Y-m-d H:i:s');
+            $time = Carbon::now()->format('Y-m-d H:i:s');
+            $expired = Carbon::now()->addDays(2)->format('Y-m-d H:i:s');
 
-
-            DB::transaction(function () use ($userId,$time,$cart) {
+            DB::transaction(function () use ($userId,$time,$cart,$expired) {
                 
                 /* insert booking table */
                 $booking = new Booking([
                     'slug' => uniqid('bk'),
                     'user_id' => $userId,
                     'booking_time' => $time,
-                    // 'status' => 'not_paid',
+                    'expired_time' => $expired,
                 ]);
                 $booking->save();
 
