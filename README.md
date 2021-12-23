@@ -49,13 +49,14 @@
 * a̶d̶d̶ e̶x̶p̶i̶r̶e̶d̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶ i̶n̶ b̶o̶o̶k̶i̶n̶g̶ M̶o̶d̶e̶l̶
 * add countdown javascript
 * add schedulling validate booking (cron)
-* add schedulling to change status expired concert
-* add email notification to user
+* a̶d̶d̶ s̶c̶h̶e̶d̶u̶l̶l̶i̶n̶g̶ t̶o̶ c̶h̶a̶n̶g̶e̶ s̶t̶a̶t̶u̶s̶ e̶x̶p̶i̶r̶e̶d̶ c̶o̶n̶c̶e̶r̶t̶
+* a̶d̶d̶ b̶o̶o̶k̶i̶n̶g̶ n̶o̶t̶i̶f̶i̶c̶a̶t̶i̶o̶n̶ t̶o̶ a̶d̶m̶i̶n̶
 * a̶d̶d̶ G̶a̶t̶e̶/̶p̶o̶l̶i̶c̶i̶e̶s̶ f̶o̶r̶ u̶s̶e̶r̶ a̶n̶d̶ a̶d̶m̶i̶n̶
 * a̶d̶d̶ t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶ w̶h̶e̶r̶e̶ b̶o̶o̶k̶i̶n̶g̶ i̶s̶ f̶i̶n̶i̶s̶h̶e̶d̶ (̶r̶e̶d̶u̶c̶e̶ s̶e̶a̶t̶)̶
 * c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
 * generate ticket pdf
 * f̶i̶x̶e̶d̶ q̶u̶a̶n̶t̶i̶t̶y̶ i̶n̶ t̶i̶c̶k̶e̶t̶
+* replace transcation with eloquent event
 
 ## Database Model
 
