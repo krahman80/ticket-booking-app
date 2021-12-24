@@ -57,6 +57,15 @@
 * generate ticket pdf
 * f̶i̶x̶e̶d̶ q̶u̶a̶n̶t̶i̶t̶y̶ i̶n̶ t̶i̶c̶k̶e̶t̶
 * replace transcation with eloquent event
+* error log
+* phpunit feature test
+
+### phpunit feature test list
+* guest could visit and get login page
+* sign up user (user) could view concert list
+* user could view see single concert
+* user could see cart list
+* user could see booking list
 
 ## Database Model
 

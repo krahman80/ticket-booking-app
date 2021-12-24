@@ -27,6 +27,7 @@ Route::group(
     Route::get('concert', 'ConcertsController@index')->name('admin.concert.index');
     }
 );
+
 Route::group(
     ['prefix' => 'user', 
     'namespace' => 'User',
@@ -45,6 +46,7 @@ Route::group(
     Route::get('booking/index','BookingsController@index')->name('user.booking.index');
     Route::get('booking/{id}', 'BookingsController@show')->name('user.booking.show');
 });
+
 Auth::routes([
     'register' => false,
     'reset' => false,

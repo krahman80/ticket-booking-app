@@ -80,7 +80,7 @@ class BookingsController extends Controller
         if (Gate::denies('user-only', auth()->user())) {
             abort(403);
         }
-        $bookings = Booking::orderBy('created_at', 'desc')->get();
+        $bookings = Booking::orderBy('created_at', 'desc')->paginate(10);
         return view('user.booking.index',['bookings' => $bookings]);
     }
 
