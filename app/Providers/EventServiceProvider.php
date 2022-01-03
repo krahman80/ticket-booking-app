@@ -7,6 +7,11 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use App\Events\BookingCreated;
+use App\Listeners\NotifyAdmin;
+use App\Listeners\RecordTicket;
+use App\Listeners\ReduceSeat;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -18,6 +23,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        BookingCreated::class => [
+            RecordTicket::class,
+            ReduceSeat::class,
+            NotifyAdmin::class
+        ]
+
     ];
 
     /**

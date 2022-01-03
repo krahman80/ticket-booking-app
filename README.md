@@ -54,16 +54,22 @@
 * a̶d̶d̶ G̶a̶t̶e̶/̶p̶o̶l̶i̶c̶i̶e̶s̶ f̶o̶r̶ u̶s̶e̶r̶ a̶n̶d̶ a̶d̶m̶i̶n̶
 * a̶d̶d̶ t̶r̶a̶n̶s̶a̶c̶t̶i̶o̶n̶ w̶h̶e̶r̶e̶ b̶o̶o̶k̶i̶n̶g̶ i̶s̶ f̶i̶n̶i̶s̶h̶e̶d̶ (̶r̶e̶d̶u̶c̶e̶ s̶e̶a̶t̶)̶
 * c̶h̶a̶n̶g̶e̶ b̶o̶o̶k̶i̶n̶g̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ s̶t̶r̶i̶n̶g̶ t̶o̶ n̶u̶m̶b̶e̶r̶ t̶h̶e̶n̶ s̶e̶t̶ n̶e̶w̶ s̶t̶a̶t̶u̶s̶ a̶t̶t̶r̶i̶b̶u̶t̶e̶s̶ i̶n̶ m̶o̶d̶e̶l̶
-* generate ticket pdf
+
+* generate ticket pdf -> use dompdf library
+
 * f̶i̶x̶e̶d̶ q̶u̶a̶n̶t̶i̶t̶y̶ i̶n̶ t̶i̶c̶k̶e̶t̶
-* replace transcation with eloquent event
+
+* replace transaction with eloquent event
+  -->insert into booking table
+  -->insert into booking order
+  -->update concert seat 
 * error log
 * phpunit feature test
 
 ### phpunit feature test list
-* guest could visit and get login page
-* sign up user (user) could view concert list
-* user could view see single concert
+* g̶u̶e̶s̶t̶ c̶o̶u̶l̶d̶ v̶i̶s̶i̶t̶ a̶n̶d̶ g̶e̶t̶ l̶o̶g̶i̶n̶ p̶a̶g̶e̶
+* s̶i̶g̶n̶ u̶p̶ u̶s̶e̶r̶ (̶u̶s̶e̶r̶)̶ c̶o̶u̶l̶d̶ v̶i̶e̶w̶ c̶o̶n̶c̶e̶r̶t̶ l̶i̶s̶t̶
+* u̶s̶e̶r̶ c̶o̶u̶l̶d̶ v̶i̶e̶w̶ s̶e̶e̶ s̶i̶n̶g̶l̶e̶ c̶o̶n̶c̶e̶r̶t̶
 * user could see cart list
 * user could see booking list
 
