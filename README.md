@@ -62,7 +62,9 @@
 * replace transaction with eloquent event
   -->insert into booking table
   -->insert into booking order
-  -->update concert seat 
+  -->update concert seat
+* use scheduler to update expired concert
+* use scheduler to update expired booking 
 * error log
 * phpunit feature test
 

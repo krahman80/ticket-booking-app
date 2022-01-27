@@ -11,7 +11,7 @@ use App\Ticket;
 class ConcertsController extends Controller
 {
     public function index() {
-        $concerts = Concert::orderBy('updated_at','desc')->paginate(12);
+        $concerts = Concert::orderBy('date','desc')->paginate(12);
         return view('user.concert.index',['concerts'=>$concerts]);
     }
 
@@ -21,7 +21,6 @@ class ConcertsController extends Controller
         $concert = Concert::findOrFail($id);
         $ticket = Ticket::findOrFail($concert->id);
         return view('user.concert.show',['concert' => $concert, 'ticket' => $ticket]);
-        
     }
 
     public function addToCart(Request $request)

@@ -16,6 +16,7 @@
                                     <h5 class="card-title"><a href="{{ route('user.concert.show',[$concert->id]) }}">{{ $concert->name }}</a></h5>
                                 <p class="card-text">Artist : {{ $concert->artist }} </p>
                                 <p class="card-text">
+                                    <small class="text-primary">Status : {{ $concert->expired_status  }}</small><br/>
                                     <small class="text-primary">Date : {{ $concert->date }}</small><br/>
                                     <small class="text-primary">Venue : {{ $concert->venue }} </small>
                                 </p>

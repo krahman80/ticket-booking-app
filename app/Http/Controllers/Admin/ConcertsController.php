@@ -9,7 +9,7 @@ use App\Concert;
 class ConcertsController extends Controller
 {
     public function index(){
-        $concerts  = Concert::orderBy('created_at', 'desc')->paginate(10); 
+        $concerts  = Concert::orderBy('date', 'desc')->paginate(10); 
         return view('admin.concert.index', ['concerts' => $concerts]);
     }
 }

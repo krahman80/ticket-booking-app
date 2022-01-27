@@ -5,8 +5,6 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-use Carbon\Carbon;
-use App\Booking;
 // use Faker\Generator as Faker;
 
 class Kernel extends ConsoleKernel
@@ -36,13 +34,9 @@ class Kernel extends ConsoleKernel
         */
 
         // $schedule->command('inspire')->hourly();
-        // update status become expired if there are no payment 48 hour after booking
-        $now = Carbon::now()->format('Y-m-d H:i:s');       
-        $schedule->call(function () use ($now){
-            Booking::where('expired_time', '<=', $now)
-            ->where('status', 0)
-            ->update(['status' => 2]);
-        })->everyMinute();
+        $schedule->command('expired:booking')->everyMinute();
+        $schedule->command('expired:concert')->everyMinute();
+       
     }
 
     /**

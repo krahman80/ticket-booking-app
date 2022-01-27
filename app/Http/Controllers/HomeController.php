@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Concert;
 use App\Booking;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $concert = Concert::OrderBy('updated_at', 'desc')->take(6)->get();
-        $booking = Booking::OrderBy('created_at','desc')->take(1)->get();            
+        $concert = Concert::OrderBy('date', 'desc')->take(6)->get();
+        $booking = Booking::Where('user_id', Auth::User()->id)->OrderBy('created_at','desc')->take(1)->get();            
         // $cart = session()->get('cart','cart is empty');
         // dd($cart);
         //booking page
