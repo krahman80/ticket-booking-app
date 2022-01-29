@@ -28,9 +28,6 @@ class HomeController extends Controller
     {
         $concert = Concert::OrderBy('date', 'desc')->take(6)->get();
         $booking = Booking::Where('user_id', Auth::User()->id)->OrderBy('created_at','desc')->take(1)->get();            
-        // $cart = session()->get('cart','cart is empty');
-        // dd($cart);
-        //booking page
         return view('user.home',['concerts' => $concert, 'booking' => $booking]);
     }
 }

@@ -72,3 +72,7 @@ Route::get('test', function() {
     // $booking = Booking::where('booking_time', '<', $now)->get();
     // dd($booking);
 })->name('test');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

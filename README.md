@@ -64,7 +64,8 @@
   -->insert into booking order
   -->update concert seat
 * use scheduler to update expired concert
-* use scheduler to update expired booking 
+* use scheduler to update expired booking
+* disable expired concert 
 * error log
 * phpunit feature test
 
